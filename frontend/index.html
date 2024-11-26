@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fetch MongoDB Data</title>
+</head>
+<body>
+  <h1>Data from MongoDB</h1>
+  <ul id="data-list"></ul>
+
+  <script>
+    // Fetch data from the backend API
+    fetch("/api/data")
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then(data => {
+        const dataList = document.getElementById("data-list");
+        data.forEach(food => {
+          const li = document.createElement("li");
+          li.textContent = `Name: ${food.item}, Age: ${food.price}`;
+          dataList.appendChild(li);
+        });
+      })
+      .catch(error => {
+        console.error("There was a problem with the fetch operation:", error);
+      });
+  </script>
+</body>
+</html>
