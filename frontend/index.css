@@ -139,7 +139,7 @@ tr {
 }
 
 
-.special-gif {
+.special-gif, .item_name img {
     margin-left: 20px;
     width: 10px;
     height: 10px;
