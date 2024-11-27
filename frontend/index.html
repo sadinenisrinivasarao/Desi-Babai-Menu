@@ -1,14 +1,55 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fetch MongoDB Data</title>
+  <title>Desi Babai Food Truck</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .tab {
+      cursor: pointer;
+      padding: 10px 15px;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .tab.active {
+      background-color: #007bff;
+      color: white;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+  </style>
 </head>
 <body>
-  <h1>Data from MongoDB</h1>
-  <ul id="data-list"></ul>
+  <h1>Desi Babai Food Truck</h1>
+  <div id="tabs" class="tabs"></div>
+  <table id="food-table">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
 
   <script>
     // Fetch data from the backend API
@@ -20,12 +61,42 @@
         return response.json();
       })
       .then(data => {
-        const dataList = document.getElementById("data-list");
-        data.forEach(food => {
-          const li = document.createElement("li");
-          li.textContent = `Name: ${food.item}, Age: ${food.price}`;
-          dataList.appendChild(li);
+        const categories = [...new Set(data.map(food => food.category))]; // Get unique categories
+        const tabs = document.getElementById("tabs");
+        const tableBody = document.querySelector("#food-table tbody");
+
+        // Function to render food items in the table
+        const renderTable = (category) => {
+          tableBody.innerHTML = ""; // Clear previous table rows
+          const filteredData = data.filter(food => food.category === category);
+          filteredData.forEach(food => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+              <td>${food.item}</td>
+              <td>${food.price}</td>
+            `;
+            tableBody.appendChild(row);
+          });
+        };
+
+        // Create tabs dynamically
+        categories.forEach(category => {
+          const tab = document.createElement("div");
+          tab.className = "tab";
+          tab.textContent = category.charAt(0).toUpperCase() + category.slice(1); // Capitalize category name
+          tab.addEventListener("click", () => {
+            document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+            tab.classList.add("active");
+            renderTable(category); // Render table for the selected category
+          });
+          tabs.appendChild(tab);
         });
+
+        // Set the first tab as active and render its table by default
+        if (categories.length > 0) {
+          tabs.firstChild.classList.add("active");
+          renderTable(categories[0]);
+        }
       })
       .catch(error => {
         console.error("There was a problem with the fetch operation:", error);
