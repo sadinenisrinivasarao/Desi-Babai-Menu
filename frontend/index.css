@@ -73,11 +73,11 @@ td {
 th {
     background-color: #ff5722;
     color: white;
-    font-size: 1rem;
+    font-size: 0.8rem;
 }
 
 td {
-    font-size: 1.1rem;
+    font-size: 0.8rem;
     color: #555;
     font-weight: 500;
 }
