@@ -11,67 +11,79 @@
       padding: 0;
       background-color: #f9f9f9;
       color: #333;
+      overflow-x: hidden;
+      line-height: 1.6;
     }
 
     h1 {
       text-align: center;
-      color: #007bff;
-      margin: 20px 0;
+      color: #ff5722;
+      margin: 30px 0;
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
 
     .tabs {
       display: flex;
       justify-content: center;
-      gap: 15px;
+      gap: 20px;
       padding: 15px;
-      background-color: #f1f1f1;
-      border-bottom: 2px solid #ddd;
+      background-color: #333;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     .tab {
       cursor: pointer;
-      padding: 10px 20px;
+      padding: 12px 25px;
       background-color: #fff;
-      border: 1px solid #ccc;
-      border-radius: 20px;
-      transition: background-color 0.3s, color 0.3s;
+      border: 2px solid #ccc;
+      border-radius: 30px;
+      color: #333;
       font-weight: bold;
+      font-size: 1.1rem;
+      text-transform: capitalize;
+      transition: background-color 0.3s, color 0.3s, transform 0.3s;
     }
 
     .tab:hover {
-      background-color: #007bff;
+      background-color: #ff5722;
       color: white;
+      transform: translateY(-3px);
     }
 
     .tab.active {
-      background-color: #007bff;
+      background-color: #ff5722;
       color: white;
-      border-color: #007bff;
+      border-color: #ff5722;
     }
 
     table {
-      width: 80%;
-      margin: 30px auto;
+      width: 90%;
+      margin: 40px auto;
       border-collapse: collapse;
-      background-color: white;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
     }
 
     th, td {
-      border: 1px solid #ddd;
-      padding: 12px;
+      padding: 15px;
       text-align: left;
+      border: 1px solid #ddd;
     }
 
     th {
-      background-color: #007bff;
+      background-color: #ff5722;
       color: white;
-      font-size: 1.1em;
+      font-size: 1.2rem;
     }
 
     td {
-      font-size: 1em;
+      font-size: 1.1rem;
       color: #555;
+      font-weight: 500;
     }
 
     tr:nth-child(even) {
@@ -79,14 +91,56 @@
     }
 
     tr:hover {
-      background-color: #f1f1f1;
+      background-color: #ffebee;
+      transition: background-color 0.3s ease;
     }
 
     footer {
       text-align: center;
-      margin: 20px 0;
+      margin: 40px 0;
       color: #555;
       font-size: 0.9em;
+      background-color: #333;
+      color: white;
+      padding: 10px 0;
+    }
+
+    .item_name {
+      width: 70%;
+    }
+
+    /* Animation for table rows */
+    tr {
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .tabs {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .tab {
+        margin: 5px 0;
+      }
+
+      table {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -125,8 +179,8 @@
           filteredData.forEach(food => {
             const row = document.createElement("tr");
             row.innerHTML = `
-              <td>${food.item}</td>
-              <td>₹${food.price.toFixed(2)}</td>
+              <td class="item_name">${food.item}</td>
+              <td>₹${Number(food.price).toFixed(2)}</td>
             `;
             tableBody.appendChild(row);
           });
