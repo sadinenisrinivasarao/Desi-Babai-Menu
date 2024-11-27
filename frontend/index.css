@@ -1,0 +1,137 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  h1 {
+    text-align: center;
+    color: #ff5722;
+    margin: 30px 0;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .tabs {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px;
+    background-color: #333;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .tab {
+    cursor: pointer;
+    padding: 12px 25px;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 30px;
+    color: #333;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-transform: capitalize;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+  }
+
+  .tab:hover {
+    background-color: #ff5722;
+    color: white;
+    transform: translateY(-3px);
+  }
+
+  .tab.active {
+    background-color: #ff5722;
+    color: white;
+    border-color: #ff5722;
+  }
+
+  table {
+    width: 90%;
+    margin: 40px auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  th, td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #ff5722;
+    color: white;
+    font-size: 1.2rem;
+  }
+
+  td {
+    font-size: 1.1rem;
+    color: #555;
+    font-weight: 500;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  tr:hover {
+    background-color: #ffebee;
+    transition: background-color 0.3s ease;
+  }
+
+  footer {
+    text-align: center;
+    margin: 40px 0;
+    color: #555;
+    font-size: 0.9em;
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+  }
+
+  .item_name {
+    width: 70%;
+  }
+
+  /* Animation for table rows */
+  tr {
+    animation: fadeIn 0.6s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2rem;
+    }
+
+    .tabs {
+      flex-direction: rows;
+      align-items: center;
+    }
+
+    .tab {
+      margin: 5px 0;
+    }
+
+    table {
+      width: 100%;
+    }
+  }
