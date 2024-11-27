@@ -19,7 +19,7 @@ fetch("/api/foodItems")
 
         row.innerHTML = `
               <td class="item_name ">
-                ${food.item} 
+                ${food.item}  ${food.todayspecial}
                 ${isSpecial ? `<img src="./Special_logo.gif" alt="Special" class="special-gif">` : ""}
               </td>
               <td>$ ${food.price}</td>
