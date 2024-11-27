@@ -15,7 +15,7 @@
   <div class="truck_name"><div class="highlighted_name">Desi Babai </div>
   <div class="non-highlighted_name"></div>Indian Food Truck</div>
   <div class="truck_quote">Good Food = Good Mood</div>
-  <div class="general_quote">Good food is the foundation of genuine happiness.</div>
+  <div class="general_quote">Good food is one of the foundation of genuine happiness.</div>
 </div>
   <div id="tabs" class="tabs"></div>
   <div class="table_div">
@@ -23,13 +23,19 @@
     <thead>
       <tr>
         <th>Item</th>
-        <th>Price (₹)</th>
+        <th>Price ($)</th>
       </tr>
     </thead>
     <tbody></tbody>
   </table>
 </div>
 <div class="feedback_quote">Your feedback is our recipe for perfection. Help us make your next meal even more delicious!</div>
+<address>
+  Visit us at:<br>
+10410 S Main St,<br>
+Houston, Texas<br>
+USA
+</address>
 <div class="sri_portfolio">
   Ready to elevate your online presence with unique website designs? Let's turn your vision into reality! Reach out <b>Srinivas Sadineni</b> today using below link and let's create something extraordinary.
   <div><a href="https://srinivasarao-sadineni-portfolio.vercel.app/">Srinivas Sadineni</a>
@@ -65,7 +71,7 @@
                 ${food.item}
                 ${isSpecial ? `<img src="./Special_logo.gif" alt="Special" class="special-gif">` : ''}
               </td>
-              <td>₹${food.price.toFixed(2)}</td>
+              <td>$ ${food.price.toFixed(2)}</td>
             `;
             tableBody.appendChild(row);
           });
