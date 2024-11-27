@@ -20,12 +20,11 @@ h1 {
 .tabs {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    padding: 15px;
+    gap: 10px;
+    padding: 5px;
     background-color: #333;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     flex-wrap: wrap;
-    /* Ensures wrapping on smaller screens */
 }
 
 .tab {
@@ -74,7 +73,7 @@ td {
 th {
     background-color: #ff5722;
     color: white;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 td {
@@ -84,7 +83,7 @@ td {
 }
 
 tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: #fff6c5;
 }
 
 tr:hover {
