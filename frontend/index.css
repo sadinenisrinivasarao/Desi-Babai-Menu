@@ -121,6 +121,12 @@ footer {
 
 /* Responsive design */
 @media (max-width: 768px) {
+    .truck_logo {
+        width: 50%;
+        height: 50%;
+
+    }
+
     h1 {
         font-size: 2rem;
     }
@@ -161,8 +167,8 @@ footer {
 }
 
 .truck_logo {
-    width: 50%;
-    height: 50%;
+    /* width: 50%;
+    height: 50%; */
     /* object-fit: cover; */
     border-radius: 50%;
     border: 3px solid #fff;
@@ -184,14 +190,14 @@ footer {
 
     font-style: italic;
     color: #6672ff;
-    margin: 5px 0;
+    /* margin: 5px 0; */
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 .general_quote {
     font-size: 1.2rem;
     color: #d13800;
-    margin: 10px 0;
+    /* margin: 10px 0; */
     font-family: "Georgia", serif;
 }
 
@@ -232,6 +238,7 @@ footer {
     font-style: oblique;
     font-size: 60px;
     font-family: Georgia;
+    line-height: 20px;
 }
 
 .non-highlighted_name {
