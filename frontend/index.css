@@ -185,7 +185,7 @@ footer {
 
 .truck_quote {
     font-family: 'Caveat', cursive;
-    font-size: 23px;
+    font-size: 1.2em;
 
     font-style: italic;
     color: #6672ff;
@@ -194,7 +194,7 @@ footer {
 }
 
 .general_quote {
-    font-size: 1.2rem;
+    font-size: 0.8rem;
     color: #d13800;
     /* margin: 10px 0; */
     font-family: "Georgia", serif;
@@ -235,13 +235,13 @@ footer {
 .highlighted_name {
     letter-spacing: 1.5px;
     font-style: oblique;
-    font-size: 60px;
+    font-size: 40px;
     font-family: Georgia;
     line-height: 20px;
 }
 
 .non-highlighted_name {
     font-weight: bold;
-    font-size: 40px;
+    font-size: 20px;
     font-family: oblique;
 }
