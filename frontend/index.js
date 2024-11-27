@@ -18,11 +18,11 @@ fetch("/api/foodItems")
         const isSpecial = food.todayspecial === "yes";
 
         row.innerHTML = `
-              <td class="item_name ${food.todayspecial}">
-                ${food.item}
+              <td class="item_name ">
+                ${food.item} ${food.todayspecial}
                 ${isSpecial ? `<img src="./Special_logo.gif" alt="Special" class="special-gif">` : ""}
               </td>
-              <td>$ ${food.price.toFixed(2)}</td>
+              <td>$ ${food.price}</td>
             `;
         tableBody.appendChild(row);
       });
