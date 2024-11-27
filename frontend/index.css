@@ -150,8 +150,8 @@ footer {
 .logo_name_quote {
     text-align: center;
     padding: 20px;
-    background: linear-gradient(135deg, #f5af19, #f12711);
-    color: #fff;
+    background: linear-gradient(156deg, #f29b45, #FFFFFF, #FFFFFF, #62f954);
+
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
@@ -161,12 +161,13 @@ footer {
 }
 
 .truck_logo {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
+    width: 50%;
+    height: 50%;
+    /* object-fit: cover; */
     border-radius: 50%;
     border: 3px solid #fff;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    /* box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3); */
+
 }
 
 .truck_name {
@@ -178,16 +179,18 @@ footer {
 }
 
 .truck_quote {
-    font-size: 1.5rem;
+    font-family: 'Caveat', cursive;
+    font-size: 23px;
+
     font-style: italic;
-    color: #ffe066;
+    color: #6672ff;
     margin: 5px 0;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 .general_quote {
     font-size: 1.2rem;
-    color: #ffddd2;
+    color: #d13800;
     margin: 10px 0;
     font-family: "Georgia", serif;
 }
@@ -222,4 +225,17 @@ footer {
 .sri_portfolio a:hover {
     color: #ffa500;
     text-decoration: underline;
+}
+
+.highlighted_name {
+    letter-spacing: 1.5px;
+    font-style: oblique;
+    font-size: 60px;
+    font-family: Georgia;
+}
+
+.non-highlighted_name {
+    font-weight: bold;
+    font-size: 40px;
+    font-family: oblique;
 }
