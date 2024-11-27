@@ -22,7 +22,7 @@ const MySchema = new mongoose.Schema({
 const MyModel = mongoose.model("foodtruckdbs", MySchema);
 
 // API endpoint to fetch data
-app.get("/api/data", async (req, res) => {
+app.get("/api/foodItems", async (req, res) => {
   try {
     const data = await MyModel.find();
     res.json(data);
