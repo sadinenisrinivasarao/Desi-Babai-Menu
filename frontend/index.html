@@ -9,14 +9,38 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
+      background-image: url('https://www.example.com/path-to-your-background-image.jpg'); /* Background image URL */
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      overflow-x: hidden;
     }
 
     h1 {
       text-align: center;
-      color: #007bff;
+      color: #ff6347;
+      font-size: 36px;
       margin: 20px 0;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .special-section {
+      text-align: center;
+      font-size: 36px;
+      font-weight: bold;
+      color: #ff6347;
+      margin-top: 20px;
+      animation: fadeIn 2s ease-in-out;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .best-restaurant {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: #ff6347;
+      margin-top: 10px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     }
 
     .tabs {
@@ -24,7 +48,7 @@
       justify-content: center;
       gap: 15px;
       padding: 15px;
-      background-color: #f1f1f1;
+      background-color: rgba(0, 0, 0, 0.7);
       border-bottom: 2px solid #ddd;
     }
 
@@ -36,86 +60,112 @@
       border-radius: 20px;
       transition: background-color 0.3s, color 0.3s;
       font-weight: bold;
+      font-size: 18px;
     }
 
     .tab:hover {
-      background-color: #007bff;
+      background-color: #ff6347;
       color: white;
     }
 
     .tab.active {
-      background-color: #007bff;
+      background-color: #ff6347;
       color: white;
-      border-color: #007bff;
+      border-color: #ff6347;
     }
 
     table {
       width: 80%;
       margin: 30px auto;
       border-collapse: collapse;
-      background-color: white;
+      background-color: rgba(0, 0, 0, 0.7);
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      animation: fadeIn 1s ease-in-out;
+      border-radius: 8px;
+      overflow: hidden;
     }
 
     th, td {
       border: 1px solid #ddd;
       padding: 12px;
       text-align: left;
+      font-size: 18px;
     }
 
     th {
-      background-color: #007bff;
+      background-color: #ff6347;
       color: white;
-      font-size: 1.1em;
     }
 
     td {
-      font-size: 1em;
-      color: #555;
+      color: #ddd;
     }
 
     tr:nth-child(even) {
-      background-color: #f9f9f9;
+      background-color: #444;
     }
 
     tr:hover {
-      background-color: #f1f1f1;
+      background-color: #555;
     }
 
     footer {
       text-align: center;
       margin: 20px 0;
-      color: #555;
+      color: #ddd;
       font-size: 0.9em;
     }
 
-    .item_name {
-      width: 60%;
+    .food-images {
       display: flex;
-      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
     }
 
-    .special-gif {
+    .food-images img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Special GIF styling */
+    .special-item {
+      display: inline-block;
       margin-left: 10px;
-      width: 3px;
-      height: 3px;
     }
 
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
   </style>
 </head>
 <body>
+
   <h1>Desi Babai Food Truck</h1>
-  <div id="tabs" class="tabs"></div>
+
+  <!-- Special Section -->
+  <div id="special" class="special-section">Special Food Menu</div>
+  <div class="best-restaurant">Best Restaurant in Town</div>
+
+  <!-- Food Images Section -->
+  <div class="food-images">
+    <img src="https://www.example.com/path-to-your-image1.jpg" alt="Food Item 1">
+    <img src="https://www.example.com/path-to-your-image2.jpg" alt="Food Item 2">
+    <img src="https://www.example.com/path-to-your-image3.jpg" alt="Food Item 3">
+  </div>
+
+  <!-- Tabs Section -->
+  <div id="tabs" class="tabs">
+    <div class="tab active" data-category="drinks">Drinks</div>
+    <div class="tab" data-category="chicken">Chicken</div>
+    <div class="tab" data-category="foods">Foods</div>
+  </div>
+
+  <!-- Food Menu Table -->
   <table id="food-table">
     <thead>
       <tr>
@@ -125,6 +175,7 @@
     </thead>
     <tbody></tbody>
   </table>
+
   <footer>&copy; 2024 Desi Babai Food Truck | All Rights Reserved</footer>
 
   <script>
@@ -147,15 +198,8 @@
           const filteredData = data.filter(food => food.category === category);
           filteredData.forEach(food => {
             const row = document.createElement("tr");
-            
-            // Check if the food item is today's special
-            const isSpecial = food.todayspecial=== "yes"; 
-
             row.innerHTML = `
-              <td class="item_name">
-                ${food.item}
-                ${isSpecial ? `<img src="./special_logo.png" alt="Special" class="special-gif">` : ''}
-              </td>
+              <td class="item_name">${food.item} ${food.isSpecial ? '<img class="special-item" src="/path/to/special.gif" alt="Special"/>' : ''}</td>
               <td>₹${food.price.toFixed(2)}</td>
             `;
             tableBody.appendChild(row);
@@ -185,5 +229,6 @@
         console.error("There was a problem with the fetch operation:", error);
       });
   </script>
+
 </body>
 </html>
