@@ -18,6 +18,7 @@ mongoose.connect(process.env.MONGO_URI, {
 const MySchema = new mongoose.Schema({
   item: String,
   price: Number,
+  todayspecial: String
 });
 const MyModel = mongoose.model("foodtruckdbs", MySchema);
 
