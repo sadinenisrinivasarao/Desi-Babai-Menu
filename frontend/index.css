@@ -139,8 +139,87 @@ tr {
 }
 
 
-.special-gif, .item_name img {
-    margin-left: 20px;
-    width: 10px;
-    height: 10px;
+.special-gif,
+.item_name img {
+    margin-left: 10px;
+    width: 70px;
+    height: 30px;
+}
+
+/* Styling for the main logo and quote section */
+.logo_name_quote {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #f5af19, #f12711);
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.truck_logo_photo {
+    margin-bottom: 10px;
+}
+
+.truck_logo {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.truck_name {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 10px 0;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.truck_quote {
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #ffe066;
+    margin: 5px 0;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.general_quote {
+    font-size: 1.2rem;
+    color: #ffddd2;
+    margin: 10px 0;
+    font-family: "Georgia", serif;
+}
+
+/* Styling for feedback quote */
+.feedback_quote {
+    text-align: center;
+    margin: 20px auto;
+    padding: 10px 15px;
+    font-size: 1.1rem;
+    font-family: "Arial", sans-serif;
+    color: #fff;
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    border-radius: 8px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling for the portfolio link */
+.sri_portfolio {
+    text-align: center;
+    margin: 20px auto;
+    font-size: 1rem;
+    color: #fff;
+    font-family: "Verdana", sans-serif;
+}
+
+.sri_portfolio a {
+    color: #ffd700;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.sri_portfolio a:hover {
+    color: #ffa500;
+    text-decoration: underline;
 }

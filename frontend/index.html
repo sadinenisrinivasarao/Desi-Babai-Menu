@@ -7,8 +7,17 @@
  <link rel="stylesheet" href="./index.css">
 </head>
 <body>
-  <h1>Desi Babai Food Truck</h1>
+ <div class="menu_page">
+  <div class="logo_name_quote">
+  <div class="truck_logo_photo">
+    <img src="./Debbi.JPG" alt="" class="truck_logo">
+  </div>
+  <div class="truck_name">Desi Babai Indian Food Truck</div>
+  <div class="truck_quote">Good Food = Good Mood</div>
+  <div class="general_quote">Good food is the foundation of genuine happiness.</div>
+</div>
   <div id="tabs" class="tabs"></div>
+  <div class="table_div">
   <table id="food-table">
     <thead>
       <tr>
@@ -18,8 +27,13 @@
     </thead>
     <tbody></tbody>
   </table>
-  <footer>&copy; 2024 Desi Babai Food Truck | All Rights Reserved</footer>
-
+</div>
+<div class="feedback_quote">Please give us your feedback on food, we improve next time to make the food more delicious</div>
+<div class="sri_portfolio">
+  For more website designs please contact <a href="https://srinivasarao-sadineni-portfolio.vercel.app/">Srinivas Sadineni</a>
+</div>
+  <footer>&copy; 2024 Desi Babai Indian Food Truck | All Rights Reserved</footer>
+</div>
   <script>
     // Fetch data from the backend API
     fetch("/api/foodItems")
