@@ -18,7 +18,7 @@ fetch("/api/foodItems")
         const isSpecial = food.todayspecial === "yes";
 
         row.innerHTML = `
-              <td class="item_name">
+              <td class="item_name ${food.todayspecial}">
                 ${food.item}
                 ${isSpecial ? `<img src="./Special_logo.gif" alt="Special" class="special-gif">` : ""}
               </td>
