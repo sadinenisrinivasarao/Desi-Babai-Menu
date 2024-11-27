@@ -24,8 +24,7 @@ h1 {
     padding: 15px;
     background-color: #333;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    flex-wrap: wrap;
-    /* Ensures wrapping on smaller screens */
+    flex-wrap: wrap; /* Ensures wrapping on smaller screens */
 }
 
 .tab {
@@ -170,8 +169,7 @@ footer {
 }
 
 .truck_name {
-    font-size: 2.5rem;
-    /* Increased for better visibility */
+    font-size: 2.5rem; /* Increased for better visibility */
     font-weight: bold;
     margin: 10px 0;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
