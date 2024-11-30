@@ -13,27 +13,26 @@ fetch("/api/foodItems")
     const categories = [...new Set(data.map((food) => food.category))];
     const tabs = document.getElementById("tabs");
     const tableBody_h4 = document.querySelector("#food-table_h4");
-    const tableBody = document.querySelector("#food-table");
+    const tableHead = document.querySelector("#food-table tbody");
+    const tableBody = document.querySelector("#food-table tbody");
 
     const renderTable = (category) => {
 
       tableBody.innerHTML = "";
       tableBody_h4.innerHTML = "";
+      tableHead.innerHTML = "";
       const filteredData = data.filter((food) => food.category === category);
 
       if (filteredData.length === 0) {
         tableBody.innerHTML = "<tr><td colspan='2'>No items available</td></tr>";
         return;
       }
-      tableBody.innerHTML = `
-       <thead>
+      tableHead.innerHTML = `
+      
       <tr>
         <th>Item</th>
         <th>Price ($)</th>
       </tr>
-    </thead>
-    <tbody>
-    </tbody>
       `
 
       filteredData.forEach((food) => {
