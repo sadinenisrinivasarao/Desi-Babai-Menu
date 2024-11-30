@@ -14,9 +14,11 @@ fetch("/api/foodItems")
     const tabs = document.getElementById("tabs");
     // const tableBody = document.querySelector("#food-table tbody");
     const tableBody = document.querySelector("#food-table");
+    // const tableBody_h4 = document.querySelector("#food-table h4");
 
 
     const renderTable = (category) => {
+      document.querySelector("#food-table h4").remove()
       tableBody.innerHTML = "";
       const filteredData = data.filter((food) => food.category === category);
 
