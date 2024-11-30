@@ -12,7 +12,9 @@ fetch("/api/foodItems")
 
     const categories = [...new Set(data.map((food) => food.category))];
     const tabs = document.getElementById("tabs");
-    const tableBody = document.querySelector("#food-table tbody");
+    // const tableBody = document.querySelector("#food-table tbody");
+    const tableBody = document.querySelector("#food-table");
+
 
     const renderTable = (category) => {
       tableBody.innerHTML = "";
@@ -22,7 +24,16 @@ fetch("/api/foodItems")
         tableBody.innerHTML = "<tr><td colspan='2'>No items available</td></tr>";
         return;
       }
-
+      tableBody.innerHTML = `
+       <thead>
+      <tr>
+        <th>Item</th>
+        <th>Price ($)</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+      `
       filteredData.forEach((food) => {
         const row = document.createElement("tr");
         const isSpecial = food.todayspecial === "yes";
@@ -39,6 +50,7 @@ fetch("/api/foodItems")
         `;
         tableBody.appendChild(row);
       });
+
     };
 
     categories.forEach((category) => {
