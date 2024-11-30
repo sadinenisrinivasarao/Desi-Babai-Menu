@@ -12,12 +12,13 @@ fetch("/api/foodItems")
 
     const categories = [...new Set(data.map((food) => food.category))];
     const tabs = document.getElementById("tabs");
-    // const tableBody = document.querySelector("#food-table tbody");
+    const tableBody_h4 = document.querySelector("#food-table h4");
     const tableBody = document.querySelector("#food-table");
 
     const renderTable = (category) => {
 
       tableBody.innerHTML = "";
+      tableBody_h4.innerHTML = "";
       const filteredData = data.filter((food) => food.category === category);
 
       if (filteredData.length === 0) {
