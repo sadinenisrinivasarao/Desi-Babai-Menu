@@ -18,7 +18,7 @@ fetch("/api/foodItems")
 
 
     const renderTable = (category) => {
-      document.querySelector("#food-table h4").remove()
+     
       tableBody.innerHTML = "";
       const filteredData = data.filter((food) => food.category === category);
 
@@ -36,6 +36,7 @@ fetch("/api/foodItems")
     <tbody>
     </tbody>
       `
+      document.querySelector("#food-table h4").remove()
       filteredData.forEach((food) => {
         const row = document.createElement("tr");
         const isSpecial = food.todayspecial === "yes";
