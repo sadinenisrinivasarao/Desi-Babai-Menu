@@ -16,10 +16,6 @@ fetch("/api/foodItems")
     const tableBody = document.querySelector("#food-table");
 
     const renderTable = (category) => {
-      const tableHeader = document.querySelector("#food-table h4");
-      if (tableHeader) {
-        tableHeader.remove();
-      }
 
       tableBody.innerHTML = "";
       const filteredData = data.filter((food) => food.category === category);
@@ -73,6 +69,11 @@ fetch("/api/foodItems")
     if (categories.length > 0) {
       tabs.firstChild.classList.add("active");
       renderTable(categories[0]);
+      const tableHeader = document.querySelector("#food-table h4");
+      if (tableHeader) {
+        tableHeader.remove();
+      }
+
     }
   })
   .catch((error) => {
