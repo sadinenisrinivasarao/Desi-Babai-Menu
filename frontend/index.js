@@ -14,11 +14,13 @@ fetch("/api/foodItems")
     const tabs = document.getElementById("tabs");
     // const tableBody = document.querySelector("#food-table tbody");
     const tableBody = document.querySelector("#food-table");
-    // const tableBody_h4 = document.querySelector("#food-table h4");
-
 
     const renderTable = (category) => {
-     
+      const tableHeader = document.querySelector("#food-table h4");
+      if (tableHeader) {
+        tableHeader.remove();
+      }
+
       tableBody.innerHTML = "";
       const filteredData = data.filter((food) => food.category === category);
 
@@ -36,7 +38,7 @@ fetch("/api/foodItems")
     <tbody>
     </tbody>
       `
-      document.querySelector("#food-table h4").remove()
+
       filteredData.forEach((food) => {
         const row = document.createElement("tr");
         const isSpecial = food.todayspecial === "yes";
