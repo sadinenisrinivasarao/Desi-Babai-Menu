@@ -6,6 +6,13 @@ fetch("/api/foodItems")
     return response.json();
   })
   .then((data) => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(data);
+      }, 2000); // 2-second delay
+    });
+  })
+  .then((data) => {
     if (!Array.isArray(data) || data.length === 0) {
       throw new Error("No data available or invalid format.");
     }
@@ -18,9 +25,8 @@ fetch("/api/foodItems")
     const tableBody = document.querySelector("#food-table tbody");
 
     const renderTable = (category) => {
-
       tableBody.innerHTML = "";
-      tableBody_h4.remove();
+      if (tableBody_h4) tableBody_h4.remove();
       tableHead.innerHTML = "";
       const filteredData = data.filter((food) => food.category === category);
 
@@ -29,12 +35,11 @@ fetch("/api/foodItems")
         return;
       }
       tableHead.innerHTML = `
-      
       <tr>
         <th>Item</th>
         <th>Price ($)</th>
       </tr>
-      `
+      `;
 
       filteredData.forEach((food) => {
         const row = document.createElement("tr");
@@ -44,15 +49,13 @@ fetch("/api/foodItems")
           <td class="item_name">
             ${food.item}
             ${isSpecial
-            ? `<img src="./Special_logo.gif" alt="Special" class="special-gif">`
-            : ""
-          }
+              ? `<img src="./Special_logo.gif" alt="Special" class="special-gif">`
+              : ""}
           </td>
           <td>$ ${food.price.toFixed(2)}</td>
         `;
         tableBody.appendChild(row);
       });
-
     };
 
     categories.forEach((category) => {
@@ -70,7 +73,6 @@ fetch("/api/foodItems")
     if (categories.length > 0) {
       tabs.firstChild.classList.add("active");
       renderTable(categories[0]);
-
     }
   })
   .catch((error) => {
