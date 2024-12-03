@@ -49,8 +49,8 @@ fetch("/api/foodItems")
           <td class="item_name">
             ${food.item}
             ${isSpecial
-              ? `<img src="./Special_logo.gif" alt="Special" class="special-gif">`
-              : ""}
+            ? `<img src="./Special_logo.gif" alt="Special" class="special-gif">`
+            : ""}
           </td>
           <td>$ ${food.price.toFixed(2)}</td>
         `;
@@ -80,3 +80,20 @@ fetch("/api/foodItems")
     const tableBody = document.querySelector("#food-table tbody");
     tableBody.innerHTML = `<tr><td colspan="2" class="error">Error: ${error.message}</td></tr>`;
   });
+
+
+const carouselContainer = document.querySelector('.carousel-container');
+const items = document.querySelectorAll('.carousel-item');
+let currentIndex = 0;
+
+function updateCarousel() {
+  // Move the carousel to show the current slide
+  carouselContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+  // Update the index for the next slide
+  currentIndex = (currentIndex + 1) % items.length;
+}
+
+// Auto-play the carousel
+setInterval(updateCarousel, 3000);
+

@@ -256,3 +256,54 @@ footer {
     font-size: 20px;
     font-family: oblique;
 }
+
+.carousel {
+    width: 80%;
+    max-width: 600px;
+    height: 400px;
+    /* Set a consistent height for the carousel */
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+    /* Match the height of the carousel */
+}
+
+.carousel-item {
+    flex: 0 0 100%;
+    /* Each item takes up 100% of the carousel width */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    /* Match the height of the carousel */
+}
+
+.carousel-item img {
+    max-width: 100%;
+    /* Ensure the image fits within the carousel's width */
+    max-height: 100%;
+    /* Ensure the image doesn't exceed the carousel's height */
+    object-fit: cover;
+    /* Maintain the aspect ratio while filling the space */
+    display: block;
+    border-radius: 10px;
+}
+
+.carousel_class {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #f3f3f3;
+}
