@@ -17,7 +17,11 @@ fetch("/api/foodItems")
       throw new Error("No data available or invalid format.");
     }
 
-    const categories = [...new Set(data.map((food) => food.category))];
+    // First, filter out only available items
+    const availableItems = data.filter((food) => food.isAvailable === "yes");
+
+    // Get unique categories from available items
+    const categories = [...new Set(availableItems.map((food) => food.category))];
     const tabs = document.getElementById("tabs");
     const tableContent = document.getElementById("#food-table");
     const tableBody_h4 = document.querySelector("h4#tableBody_h4");
@@ -28,7 +32,7 @@ fetch("/api/foodItems")
       tableBody.innerHTML = "";
       if (tableBody_h4) tableBody_h4.remove();
       tableHead.innerHTML = "";
-      const filteredData = data.filter((food) => food.category === category);
+      const filteredData = availableItems.filter((food) => food.category === category);
 
       if (filteredData.length === 0) {
         tableContent.innerHTML = "<tr><td colspan='2'>No items available</td></tr>";
@@ -42,18 +46,16 @@ fetch("/api/foodItems")
       `;
 
       filteredData.forEach((food) => {
-        const row = document.createElement("tr");
         const isSpecial = food.todayspecial === "yes";
+        const row = document.createElement("tr");
 
         row.innerHTML = `
-          <td class="item_name">
-            ${food.item}
-            ${isSpecial
-            ? `<img src="./Special_logo.gif" alt="Special" class="special-gif">`
-            : ""}
-          </td>
-          <td>$ ${food.price.toFixed(2)}</td>
-        `;
+        <td class="item_name">
+          ${food.item}
+          ${isSpecial ? `<img src="./Special_logo.gif" alt="Special" class="special-gif">` : ""}
+        </td>
+        <td>$ ${food.price.toFixed(2)}</td>
+      `;
         tableBody.appendChild(row);
       });
     };
@@ -81,7 +83,6 @@ fetch("/api/foodItems")
     tableBody.innerHTML = `<tr><td colspan="2" class="error">Error: ${error.message}</td></tr>`;
   });
 
-
 const carouselContainer = document.querySelector('.carousel-container');
 const items = document.querySelectorAll('.carousel-item');
 let currentIndex = 0;
@@ -96,4 +97,3 @@ function updateCarousel() {
 
 // Auto-play the carousel
 setInterval(updateCarousel, 3000);
-
